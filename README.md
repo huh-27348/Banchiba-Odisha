@@ -1,2 +1,318 @@
-# Banchiba-Odisha
-**Banchiba Odisha** — a static site with survival steps for coastal Odisha residents during a cyclone, focused on the risky wait after landfall: signalling without a phone, rationing water, staying grouped, plus nearest shelters and one-tap helplines. Built with HTML/CSS + Bootstrap. Hackathon prototype.
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banchiba Odisha</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap">
+
+    <style>
+        .page-body {
+            background-color: #EFF3F6;
+            font-family: 'Work Sans', sans-serif;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .top-bar {
+            background-color: #16324F;
+            padding: 24px;
+        }
+
+        .top-bar h1 {
+            color: #F2A93B;
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .tagline-text {
+            color: #FFFFFF;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .alert-banner {
+            background-color: #B8202B;
+            padding: 18px;
+        }
+
+        .alert-banner p {
+            color: #FFFFFF;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 19px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .content-section {
+            padding: 40px;
+        }
+
+        .section-heading {
+            color: #16324F;
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 700;
+            text-align: left;
+            margin: 10px;
+        }
+
+        .phase-card {
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            border-width: 1px;
+            padding: 22px;
+            margin: 10px;
+            width: 330px;
+        }
+
+        .phase-card h1 {
+            color: #16324F;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        .phase-card li {
+            color: #1B2A2F;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 15px;
+        }
+
+        .video-card {
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            border-width: 1px;
+            padding: 16px;
+            margin: 10px;
+            width: 440px;
+        }
+
+        .caption-text {
+            color: #2F4858;
+            font-family: 'Caveat', cursive;
+            font-size: 20px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .steps-card {
+            background-color: #FCEFD8;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 10px;
+            width: 380px;
+        }
+
+        .steps-card li {
+            color: #1B2A2F;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+        }
+
+        .survive-img {
+            height: 300px;
+            width: 100%;
+            background-size: cover;
+        }
+
+        .img-signal {
+            background-image: url('https://images.unsplash.com/photo-1500534623283-312aade485b7?w=1000');
+        }
+
+        .img-shelter {
+            background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1000');
+        }
+
+        .img-water {
+            background-image: url('https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=1000');
+        }
+
+        .carousel-caption-card {
+            background-color: #16324F;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .map-card {
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            border-width: 1px;
+            padding: 16px;
+            margin: 10px;
+            width: 440px;
+        }
+
+        .helpline-bar {
+            background-color: #0E2036;
+            padding: 30px;
+        }
+
+        .helpline-btn {
+            margin: 10px;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 700;
+            border-radius: 30px;
+        }
+
+        .footer-text {
+            color: #FFFFFF;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body class="page-body">
+
+    <div class="top-bar">
+        <h1>Banchiba Odisha</h1>
+        <p class="tagline-text">Cyclone alerts and survival steps for Odisha — hold on till help arrives</p>
+    </div>
+
+    <div class="alert-banner">
+        <p>⚠ CYCLONE WARNING — Coastal Odisha — Landfall expected in 6 hours</p>
+    </div>
+
+    <div class="content-section">
+        <h1 class="section-heading">Before, during, and after</h1>
+        <div class="d-flex flex-row justify-content-center">
+            <div class="phase-card">
+                <h1>Before landfall</h1>
+                <ul>
+                    <li>Move to the nearest cyclone shelter if advised</li>
+                    <li>Store 3 days of drinking water and dry food</li>
+                    <li>Charge phones and power banks fully</li>
+                    <li>Tie down loose roofing and outdoor items</li>
+                </ul>
+            </div>
+            <div class="phase-card">
+                <h1>During the storm</h1>
+                <ul>
+                    <li>Stay indoors, away from windows</li>
+                    <li>Do not go out even if the wind pauses briefly</li>
+                    <li>Avoid using landline phones during lightning</li>
+                    <li>Keep the emergency bag within reach</li>
+                </ul>
+            </div>
+            <div class="phase-card">
+                <h1>After the storm</h1>
+                <ul>
+                    <li>Avoid fallen power lines and flooded roads</li>
+                    <li>Boil or treat water before drinking</li>
+                    <li>Check on elderly and injured neighbours</li>
+                    <li>Wait for an official all-clear before returning home</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h1 class="section-heading">Surviving till help arrives</h1>
+        <div class="d-flex flex-row justify-content-center">
+            <div class="steps-card">
+                <h1 style="color:#16324F; font-family:'Playfair Display', serif; font-size:20px; font-weight:700;">If you are stranded</h1>
+                <ol>
+                    <li>Move to the highest, most stable point nearby</li>
+                    <li>Ration water — small sips, not large gulps</li>
+                    <li>Signal with bright cloth, a mirror, or a torch in short bursts</li>
+                    <li>Stay together as a group — do not wander off alone</li>
+                    <li>Conserve phone battery for one call, not constant checking</li>
+                </ol>
+            </div>
+
+            <div class="video-card">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/VIDEO_ID_SURVIVAL"
+                        allowfullscreen></iframe>
+                </div>
+                <p class="caption-text">How to signal rescue teams and stay safe while you wait</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h1 class="section-heading">Nearest shelters &amp; safe points</h1>
+
+        <div class="d-flex flex-row justify-content-center">
+            <div class="map-card">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item"
+                        src="https://www.google.com/maps?q=Bhubaneswar,Odisha&output=embed"
+                        allowfullscreen></iframe>
+                </div>
+                <p class="caption-text">Map view of the shelter zone shown below</p>
+            </div>
+        </div>
+
+        <div id="shelterCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#shelterCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#shelterCarousel" data-slide-to="1"></li>
+                <li data-target="#shelterCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="survive-img img-shelter"></div>
+                    <div class="carousel-caption">
+                        <div class="carousel-caption-card">
+                            <p class="tagline-text">Panchayat Bhawan shelter — 1.2 km — capacity 300</p>
+                            <button class="btn btn-warning helpline-btn" onclick="alert('Directions to Panchayat Bhawan shelter')">Get Directions</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="survive-img img-water"></div>
+                    <div class="carousel-caption">
+                        <div class="carousel-caption-card">
+                            <p class="tagline-text">Relief water &amp; supply point — 2.0 km</p>
+                            <button class="btn btn-warning helpline-btn" onclick="alert('Directions to relief supply point')">Get Directions</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="survive-img img-signal"></div>
+                    <div class="carousel-caption">
+                        <div class="carousel-caption-card">
+                            <p class="tagline-text">High ground / signalling point — 0.8 km</p>
+                            <button class="btn btn-warning helpline-btn" onclick="alert('Directions to nearest high ground point')">Get Directions</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#shelterCarousel" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#shelterCarousel" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+    </div>
+
+    <div class="helpline-bar">
+        <h1 class="section-heading" style="color:#FFFFFF; text-align:center;">Emergency helplines — Odisha</h1>
+        <div class="d-flex flex-row justify-content-center">
+            <button class="btn btn-danger helpline-btn" onclick="alert('Calling Odisha State Disaster Helpline 1070')">Disaster Helpline · 1070</button>
+            <button class="btn btn-light helpline-btn" onclick="alert('Calling Ambulance 108')">Ambulance · 108</button>
+            <button class="btn btn-warning helpline-btn" onclick="alert('Calling Police 100')">Police · 100</button>
+        </div>
+    </div>
+
+    <div class="top-bar">
+        <p class="footer-text">Banchiba Odisha — cyclone alerts and survival guidance for coastal Odisha</p>
+    </div>
+
+</body>
+
+</html>
